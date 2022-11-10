@@ -28,11 +28,11 @@
                 <ul class="list-unstyled py-2 d-flex justify-content-end">
                     <li class="d-inline px-3 "> <a href="expire.html" class="text-decoration-none text-dark fs-7">Expire Soon</a></li>
                     <li class="d-inline px-3 "> <a href="#" class="text-decoration-none text-dark fs-7">SAVE MORE ON APP</a></li>
-                    <li class="d-inline px-3 "> <a href="#" class="text-decoration-none text-dark fs-7">SELL ON HATBAZAR</a></li>
+                    {{-- <li class="d-inline px-3 "> <a href="#" class="text-decoration-none text-dark fs-7">SELL YEASIN TRADERS</a></li> --}}
                     <li class="d-inline px-3 "><a href="#" class="text-decoration-none text-dark fs-7">CUSTOMER CARE</a></li>
                     <li class="d-inline px-3 "><a href="#" class="text-decoration-none text-dark fs-7">TRACK MY ORDER</a></li>
                     <li class="d-inline px-3 "><a href="#" class="text-decoration-none text-dark fs-7">SINGUP/LOGIN </a></li>
-                    <li class="d-inline px-3 "> <a href="#" class="text-decoration-none text-dark fs-7">HATBAZAR AFLITE PROGRAM </a></li>
+                    <li class="d-inline px-3 "> <a href="#" class="text-decoration-none text-dark fs-7">YASIN TRADERS AFLITE PROGRAM </a></li>
                     <li class="d-inline px-3 "><a href="#" class="text-decoration-none text-dark fs-7">ভাষা</a></li>
                     <li class="d-inline px-3 "><a href="#" class="text-decoration-none text-dark fs-6">
                         <i class="fa-regular fa-bell"></i>
