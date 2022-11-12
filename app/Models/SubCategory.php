@@ -12,6 +12,9 @@ class SubCategory extends Model
         'user_id',
         'subcategory_name',
         'thumbnail',
-        
+
     ];
+    public function getuser(){
+        return $this->hasOne(User::class,'id','user_id');
+    }
 }

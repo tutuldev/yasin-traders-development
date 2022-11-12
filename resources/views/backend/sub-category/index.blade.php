@@ -2,17 +2,18 @@
 
 @section('content')
 
-<div class="row">
+<div class="row m-0">
     <div class="col-md-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
                 <a href="{{route('subcategory.create')}}" type="button" class="btn btn-primary btn-icon-text">
                     <i class="btn-icon-prepend" data-feather="plus-circle"></i>
-                    Create Sub Category
+                    Create subcategory
                 </a>
                 <div class="table-responsive pt-3">
                     <table class="table table-bordered">
                         <thead>
+
                             <tr>
                                 <th>
                                     #
@@ -21,10 +22,13 @@
                                     Name
                                 </th>
                                 <th>
-                                    Author
+                                    Added By
                                 </th>
                                 <th>
                                     Create at
+                                </th>
+                                <th>
+                                    Thumbnail
                                 </th>
                                 <th>
                                     Action
@@ -41,10 +45,13 @@
                                     {{$subcategory->subcategory_name}}
                                 </td>
                                 <td>
-                                    {{$category->user_id}}
+                                    {{$subcategory->getuser->name}}
                                 </td>
                                 <td>
                                     {{$subcategory->created_at->format('d M Y')}}
+                                </td>
+                                <td>
+                                    <img src="{{ asset('storage/subcategory/' . $subcategory->thumbnail) }}" height="40px" width="50px" alt="">
                                 </td>
                                 <td>
                                     <form action="{{route('subcategory.destroy', $subcategory->id)}}" method="post" style="display: inline">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Category;
 
 class ProductController extends Controller
 {
@@ -24,7 +25,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view ('backend.product.create');
+        $categories = Category::get();
+        return view ('backend.product.create',compact('categories'));
     }
 
     /**

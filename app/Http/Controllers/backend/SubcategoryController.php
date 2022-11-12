@@ -5,6 +5,7 @@ namespace App\Http\Controllers\backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\SubCategory;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 
 class SubcategoryController extends Controller
@@ -15,7 +16,7 @@ class SubcategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
+    {
         $subcategories = SubCategory::get();
         return view ('backend.sub-category.index',compact('subcategories'));
     }
@@ -38,26 +39,32 @@ class SubcategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //   return $request->all();
-          $request->validate([
-            'subcategory_name' => 'required'
+         // return $request->all();
+         $request->validate([
+            'subcategory_name' => 'required',
+
         ]);
 
-        $thumbnailname = null;
+        $logoName = null;
         if ($request->file('thumbnail')) {
-            $imagethumbnail = $request->file('thumbnail');
-            $extension = $imagethumbnail->getClientOriginalExtension();
-            $thumbnailname = Str::uuid() . '.' . $extension;
-            Image::make($imagethumbnail)->save('uploads/subcategory/' . $thumbnailname);
+            $extention = $request->file('thumbnail')->getClientOriginalExtension();
+            $uniquename = uniqid().'.'.$extention;
+
+            $request->file('thumbnail')->storeAs(
+                'public/subcategory',
+                $uniquename
+            );
+            $logoName = $uniquename;
         }
+
         $data = [
             'subcategory_name' => $request->subcategory_name,
             'user_id' => Auth::user()->id,
-            'thumbnail' => $thumbnailname
+            'thumbnail' => $logoName
         ];
 
         SubCategory::create($data);
-    
+        // Session::flash('create');
         return redirect()->route('subcategory.index');
     }
 
@@ -69,7 +76,8 @@ class SubcategoryController extends Controller
      */
     public function show($id)
     {
-        //
+        $subcategory = SubCategory::firstWhere('id',$id);
+        return view('backend.sub-category.show', compact('subcategory'));
     }
 
     /**
@@ -80,7 +88,8 @@ class SubcategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $subcategory = SubCategory::firstWhere('id',$id);
+        return view ('backend.sub-category.edit',compact('subcategory'));
     }
 
     /**
@@ -92,7 +101,50 @@ class SubcategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // return $request->all();
+        $request->validate([
+            'subcategory_name' => 'required',
+
+        ]);
+
+        $logoName = null;
+        if ($request->file('thumbnail')) {
+            $extention = $request->file('thumbnail')->getClientOriginalExtension();
+            $uniquename = uniqid().'.'.$extention;
+
+            $request->file('thumbnail')->storeAs(
+                'public/subcategory',
+                $uniquename
+            );
+            $logoName = $uniquename;
+        }
+
+
+        if($logoName){
+            $data = [
+                'subcategory_name' => $request->subcategory_name,
+                // 'user_id' => Auth::user()->id,
+                'thumbnail' => $logoName
+            ];
+
+            $file = SubCategory::firstwhere('id', $id)->thumbnail;
+            if($file){
+                Storage::disk('public')->delete('subcategory/' . $file);
+            }
+
+
+            SubCategory::firstwhere('id', $id)->update($data);
+            // Session::flash('update');
+            return redirect()->route('subcategory.index');
+        }else{
+            $data = [
+                'subcategory_name' => $request->subcategory_name,
+                // 'user_id' => Auth::user()->id,
+            ];
+            SubCategory::firstwhere('id', $id)->update($data);
+            return redirect()->route('subcategory.index');
+
+        }
     }
 
     /**

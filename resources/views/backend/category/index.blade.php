@@ -13,7 +13,7 @@
                 <div class="table-responsive pt-3">
                     <table class="table table-bordered">
                         <thead>
-                            
+
                             <tr>
                                 <th>
                                     #
@@ -22,10 +22,13 @@
                                     Name
                                 </th>
                                 <th>
-                                    Author
+                                    Added By
                                 </th>
                                 <th>
                                     Create at
+                                </th>
+                                <th>
+                                    Thumbnail
                                 </th>
                                 <th>
                                     Action
@@ -46,6 +49,9 @@
                                 </td>
                                 <td>
                                     {{$category->created_at->format('d M Y')}}
+                                </td>
+                                <td>
+                                    <img src="{{ asset('storage/category/' . $category->thumbnail) }}" height="40px" width="50px" alt="">
                                 </td>
                                 <td>
                                     <form action="{{route('category.destroy', $category->id)}}" method="post" style="display: inline">
