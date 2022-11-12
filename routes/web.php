@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\backend\CategoryController;
 use App\Http\Controllers\backend\SubcategoryController;
+use App\Http\Controllers\backend\CompanyController;
 use App\Http\Controllers\backend\ProductController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +31,8 @@ Route::get('/bac', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-// crud 
+// crud
 Route::resource('category', CategoryController::class);
 Route::resource('subcategory', SubcategoryController::class);
 Route::resource('product', ProductController::class);
+Route::resource('company', CompanyController::class);

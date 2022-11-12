@@ -47,7 +47,7 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
-                          
+
                             <a class="nav-link" href="{{url('category')}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Category
@@ -55,6 +55,10 @@
                             <a class="nav-link" href="{{url('subcategory')}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 sub-Category
+                            </a>
+                            <a class="nav-link" href="{{url('company')}}">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Company
                             </a>
                             <a class="nav-link" href="{{url('product')}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
@@ -122,9 +126,9 @@
             </div>
             <div id="layoutSidenav_content">
                 <main>
-                   
-                    @yield('content')   
-             
+
+                    @yield('content')
+
                 </main>
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
