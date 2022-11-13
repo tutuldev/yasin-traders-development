@@ -36,10 +36,10 @@
             <div class="mb-3">
 
               <label for="forName" class="form-label">Category</label>
-            <select name="category_id" class="js-example-basic-single form-select" data-width="100%">
+            <select name="category" class="js-example-basic-single form-select" data-width="100%">
                 <option value="">Select</option>
                 @foreach ($categories as $category)
-                    <option value="{{ $category->id }}">{{ $category->category_name }}</option>
+                    <option value="{{ $category->category_name }}">{{ $category->category_name }}</option>
                 @endforeach
             </select>
 

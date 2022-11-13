@@ -18,6 +18,9 @@ class Product extends Model
         'subcategory',
         'description',
         'thumbnail',
-        
+
     ];
+    public function getuser(){
+        return $this->hasOne(User::class,'id','user_id');
+    }
 }
