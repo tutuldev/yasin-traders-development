@@ -20,9 +20,9 @@ class CreateProductsTable extends Migration
             $table->date('expire_date');
             $table->integer('price');
             $table->integer('old_price')->nullable();
-            $table->string('company')->nullable();
-            $table->string('category')->nullable();
-            $table->string('subcategory')->nullable();
+            $table->integer('company')->nullable();
+            $table->integer('category')->nullable();
+            $table->integer('subcategory')->nullable();
             $table->longText('description')->nullable();
             $table->string('thumbnail')->nullable();
             $table->timestamps();

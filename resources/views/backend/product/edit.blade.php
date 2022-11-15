@@ -30,27 +30,54 @@
               <label for="forName" class="form-label">Old price</label>
               <input type="number" name="old_price" value="{{$product->old_price}}" class="form-control" id="category_name" autocomplete="off" placeholder="old price">
             </div>
-            <div class="mb-3">
 
+            {{-- <div class="mb-3">
               <label for="forName" class="form-label">Company</label>
               <input type="text" name="company" value="{{$product->company}}"  class="form-control" id="category_name" autocomplete="off" placeholder="company">
-            </div>
+            </div> --}}
             <div class="mb-3">
+                <label for="forName" class="form-label">Company</label>
+              <select name="company" class="js-example-basic-single form-select" data-width="100%">
+                  <option value="">Select</option>
+                  @foreach ($companies as $company)
+                      <option value="{{ $company->id }}">{{ $company->company_name }}</option>
+                  @endforeach
+              </select>
+              </div>
 
+            {{-- <div class="mb-3">
+              <label for="forName" class="form-label">Category</label>
+            <select name="category" class="js-example-basic-single form-select" data-width="100%">
+
+                @foreach ($categories as $category)
+                <option value="{{ $category->id }}"
+                    @if ($category->id == $product->category) selected @endif>
+                    {{ $category->name }}</option>
+            @endforeach
+            </select>
+            </div> --}}
+            <div class="mb-3">
               <label for="forName" class="form-label">Category</label>
             <select name="category" class="js-example-basic-single form-select" data-width="100%">
                 <option value="">Select</option>
                 @foreach ($categories as $category)
-                    <option value="{{ $category->category_name }}">{{ $category->category_name }}</option>
+                    <option value="{{ $category->id }}">{{ $category->category_name }}</option>
                 @endforeach
             </select>
-
             </div>
+
+
+
             <div class="mb-3">
-
-              <label for="forName" class="form-label">Subcategory</label>
-              <input type="text" name="subcategory" value="{{$product->subcategory}}" class="form-control" id="category_name" autocomplete="off" placeholder="subcategory">
-            </div>
+                <label for="forName" class="form-label">Subcategory</label>
+              <select name="subcategory" class="js-example-basic-single form-select" data-width="100%">
+                  <option value="">Select</option>
+                  @foreach ($subcategories as $subcategory)
+                  {{-- <option value="">{{ $subcategory->subcategory_name }}</option> --}}
+                      <option value="{{ $subcategory->id }}">{{ $subcategory->subcategory_name }}</option>
+                  @endforeach
+              </select>
+              </div>
 
 
             <div class="mb-3">

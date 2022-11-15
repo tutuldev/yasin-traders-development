@@ -116,6 +116,14 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Tables
                             </a>
+                            <a class="nav-link" href="{{url('fnt')}}">
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                User Interface
+                            </a>
+                            {{-- <a class="nav-link" href="tables.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                Tables
+                            </a> --}}
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">

@@ -42,6 +42,39 @@
                                     {{$product->getuser->name}}
                                 </td>
                             </tr>
+
+                            <tr>
+                                <td>
+                                    Expir Date
+                                </td>
+                                <td>
+                                    {{$product->expire_date}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Company
+                                </td>
+                                <td>
+                                    {{$product->company}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Category
+                                </td>
+                                <td>
+                                    {{$product->category}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Subcategory
+                                </td>
+                                <td>
+                                    {{$product->subcategory}}
+                                </td>
+                            </tr>
                             <tr>
                                 <td>
                                     Details

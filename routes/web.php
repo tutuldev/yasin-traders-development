@@ -21,9 +21,9 @@ use App\Http\Controllers\backend\ProductController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/fnt', function () {
-    return view('frontend.home');
-});
+// Route::get('/fnt', function () {
+//     return view('frontend.home');
+// });
 Route::get('/bac', function () {
     return view('backend.home');
 });
@@ -36,3 +36,6 @@ Route::resource('category', CategoryController::class);
 Route::resource('subcategory', SubcategoryController::class);
 Route::resource('product', ProductController::class);
 Route::resource('company', CompanyController::class);
+
+Route::get('/fnt', [App\Http\Controllers\frontend\HomeController::class, 'index'])->name('home.index');
+Route::get('/expire', [App\Http\Controllers\frontend\ExpireController::class, 'index'])->name('expire.index');

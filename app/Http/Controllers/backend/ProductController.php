@@ -5,6 +5,8 @@ namespace App\Http\Controllers\backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\SubCategory;
+use App\Models\Company;
 use App\Models\Product;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
@@ -22,8 +24,7 @@ class ProductController extends Controller
         $products = Product::get();
         return view ('backend.product.index',compact('products'));
 
-        // $products = Product::get();
-        // return view ('backend.product.index',compact('products'));
+
     }
 
     /**
@@ -34,7 +35,9 @@ class ProductController extends Controller
     public function create()
     {
         $categories = Category::get();
-        return view ('backend.product.create',compact('categories'));
+        $subcategories = SubCategory::get();
+        $companies = Company::get();
+        return view ('backend.product.create',compact('categories','subcategories','companies'));
     }
 
     /**
@@ -103,7 +106,9 @@ class ProductController extends Controller
     {
         $product = Product::firstWhere('id',$id);
         $categories = Category::get();
-        return view ('backend.product.edit',compact('product','categories'));
+        $subcategories = SubCategory::get();
+        $companies = Company::get();
+        return view ('backend.product.edit',compact('product','categories','subcategories','companies'));
     }
 
     /**
